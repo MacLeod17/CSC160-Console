@@ -1,4 +1,5 @@
-﻿using System;
+﻿using KilpackLibrary;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace RPG
 {
-    class Character
+    abstract class Character
     {
         public enum eTeam : byte
         {
@@ -55,5 +56,7 @@ namespace RPG
         {
             Console.WriteLine($"Name: {Name}\nTeam: {Team}\nHealth: {Health}");
         }
+
+        public abstract void Attack(Character target);
     }
 }

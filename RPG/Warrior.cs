@@ -1,4 +1,5 @@
-﻿using System;
+﻿using KilpackLibrary;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.CompilerServices;
@@ -26,6 +27,21 @@ namespace RPG
             Console.WriteLine(typeof(Warrior).Name);
             base.Display();
             Console.WriteLine($"Strength: {Strength}");
+        }
+
+        public override void Attack(Character target)
+        {
+            Console.Write($"{Name} swings their sword at {target.Name}...");
+            if (100.GetRandom() <= 50)
+            {
+                int damage = Strength.GetRandom();
+                target.Health -= damage;
+                Console.WriteLine($"and hits with {damage} damage!");
+            }
+            else
+            {
+                Console.WriteLine($"and misses.");
+            }
         }
     }
 }

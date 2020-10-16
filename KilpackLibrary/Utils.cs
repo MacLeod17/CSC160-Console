@@ -8,13 +8,6 @@ namespace KilpackLibrary
 {
     public static class Utils
     {
-        public static int Hello(string name)
-        {
-            Console.WriteLine($"Hello, {name}!");
-            
-            return 0;
-        }
-
         public static int GetConsoleInt(string prompt, int min, int max)
         {
             int number = 0;
@@ -73,6 +66,18 @@ namespace KilpackLibrary
                 Console.WriteLine($"{i} - {items[i]}");
             }
             return GetConsoleInt(message, 0, items.Length);
+        }
+
+        static Random random = new Random();
+        public static int GetRandom(this int max, int min = 0)
+        {
+            if (min > max)
+            {
+                int temp = min;
+                min = max;
+                max = temp;
+            }
+            return random.Next(min, max+1);
         }
     }
 }
